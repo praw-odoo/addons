@@ -1,6 +1,6 @@
 # learnndevodoo
 
-git remote update
+git remote update<br>
 git diff
 git checkout
 git pull --rebase
