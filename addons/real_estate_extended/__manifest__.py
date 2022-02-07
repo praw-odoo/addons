@@ -12,6 +12,7 @@
     #    'views/property_tag_views.xml',
     #    'views/property_offer_views.xml',
        'views/property_views.xml',
+       'views/special_offer_views.xml',
     #   'views/estate_menus.xml',
        'security/ir.model.access.csv'
     ],

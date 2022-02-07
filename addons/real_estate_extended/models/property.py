@@ -16,4 +16,4 @@ class specialoffer(models.Model):
     _inherits={"estate.property":"property_id"}
 
     property_id = fields.Many2one ('estate.property')
-    special_offer=fields.Float()
+    special_price=fields.Float()

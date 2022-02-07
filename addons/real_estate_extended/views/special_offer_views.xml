@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record id="special_offer_view_tree" model="ir.ui.view">
+            <field name="name">special.offer.view.tree</field>
+            <field name="model">special.offer</field>
+            <field name="arch" type="xml">
+                <tree multi_edit="1">
+                    <field name="name"/>
+                    <field name="state"/>
+                    <field name="special_price"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="special_offer_view_form" model="ir.ui.view">
+            <field name="name">special.offer.view.form</field>
+            <field name="model">special.offer</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <field name="state" widget="statusbar" statusbar_visible="new,confirm,cancel"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                            </group>
+                            <group>
+                                <field name="special_price"/>
+                                <field name="active"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page name="details" string="Details">
+                                <field name="description"/>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_special_offer" model="ir.actions.act_window">
+            <field name="name">Special Course</field>
+            <field name="res_model">special.offer</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+            id="real_estate_special_offer"
+            name="Special offer"
+            parent="real_estate.menu_realestate_root"
+            action="action_special_offer"/>
+    </data>
+</odoo>
