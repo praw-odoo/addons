@@ -8,7 +8,7 @@
             <field name="inherit_id" ref="real_estate.estate_property_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='name']" position="after">
-                <field name="home_city"/>
+                    <field name="home_city"/>
                 </xpath>
             </field>
         </record>
@@ -31,7 +31,7 @@
             </field>
         </record>
 
-        <record id="estate_property_form" model="ir.ui.view">
+        <record id="state_property_form" model="ir.ui.view">
             <field name="name">state.property.form</field>
             <field name="model">state.property</field>
             <field name="arch" type="xml">
@@ -42,8 +42,6 @@
                                 <field name="name"/>
                                 <field name="property_type_id"/>
                                 <field name="tag_ids" widget="many2many_tags"/>
-                                <!-- <field name="City"/>
-                                <field name="State"/> -->
                             </group>
                             <group>
                                 <field name="state" />

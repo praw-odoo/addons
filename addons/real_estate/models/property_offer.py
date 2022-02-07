@@ -12,4 +12,4 @@ class property_offer(models.Model):
     partner_id = fields.Many2one ('res.partner')
     validity=fields.Integer(default=7)
     
-
+    cust_id=fields.One2many("course.session")
