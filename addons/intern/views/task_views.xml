@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="intern_intern_tree" model="ir.ui.view">
+            <field name="name">intern.intern.tree</field>
+            <field name="model">intern.intern</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="position"/>
+                    <field name="college"/>
+                    <field name="stipend"/>
+                    <field name="date_join"/>
+                    <field name="date_comp"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="intern_intern_form" model="ir.ui.view">
+            <field name="name">intern.intern.form</field>
+            <field name="model">intern.intern</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="position"/>
+                            <field name="college"/>
+                        </group>
+                        <group>
+                            <field name="stipend"/>
+                            <field name="date_join"/>
+                            <field name="date_comp"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_property" model="ir.actions.act_window">
+            <field name="name">task</field>
+            <field name="res_model">intern.intern</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- <menuitem id="intern_root" name="Intern">
+            <menuitem id="task" name="task">
+                <menuitem id="task_root" name="task" action="action_property"/>
+            </menuitem>
+        </menuitem> -->
+
+    </data>
+</odoo>

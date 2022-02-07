@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <menuitem id="intern_root" name="Intern">
+
+            <menuitem name="task" id="task_menu">
+                <menuitem name="task" id="menu_task_action" action="action_property"/>
+            </menuitem>
+
+        </menuitem>
+
+    </data>
+</odoo>

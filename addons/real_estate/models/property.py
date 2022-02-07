@@ -8,6 +8,7 @@ class Property(models.Model):
     description=fields.Text(string="Property details")
     postcode=fields.Char(string="Postcode")
     date_availability=fields.Date(string="Availability Date",copy=False,default=fields.Date.today())
+    date_end=fields.Date()
     expected_price=fields.Float(string="Expected Price",required=True)
     selling_price=fields.Float(string="Selling Price",copy=False,readonly=True)
     bedrooms=fields.Integer(string="Bedrooms",default="2")
@@ -43,4 +44,8 @@ class Property(models.Model):
                 if not x or offer.price>x:
                     x = offer.price
             record.best_price = x
-        
+
+    @api.onchange("tag_ids")
+    def _onchange_name(self):
+        if self.tag_ids:
+            self.name=self.name+"offers"

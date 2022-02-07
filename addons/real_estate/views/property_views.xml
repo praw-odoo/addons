@@ -20,6 +20,8 @@
             </field>
         </record>
 
+        <!-- calendar view = list view -->
+
         <record id="estate_property_calender" model="ir.ui.view">
             <field name="name">estate.property.calendar</field>
             <field name="model">estate.property</field>
@@ -30,6 +32,8 @@
                 </calendar>
             </field>
         </record>
+
+        <!-- search view = list view -->
 
         <record id="estate_property_search" model="ir.ui.view">
             <field name="name">estate.property.search</field>
@@ -99,10 +103,79 @@
                 </form>
             </field>
         </record>
-                <record model="ir.actions.act_window" id="action_property">
+        
+        <record id="estate_property_graph" model="ir.ui.view">
+            <field name="name">estate.property.graph</field>
+            <field name="model">estate.property</field>
+            <field name="arch" type="xml">
+                <graph string="" type="bar">
+                    <field name="name"/>
+                    <!-- <field name="expected_price"/> -->
+                    <!-- <field name="bedrooms"/> -->
+                </graph>
+            </field>
+        </record>
+
+        <record id="estate_property_pivot" model="ir.ui.view">
+            <field name="name">estate.property.pivot</field>
+            <field name="model">estate.property</field>
+            <field name="arch" type="xml">
+                <pivot string="" disable_linking="true">
+                    <field name="name" type="row"/>
+                    <field name="expected_price" interval="month" type="col"/> 
+                </pivot>
+            </field>
+        </record>
+
+        <record id="estate_property_view_gantt" model="ir.ui.view">
+            <field name="name">estate.property.view.gantt</field>
+            <field name="model">estate.property</field>
+            <field name="arch" type="xml">
+                <gantt date_start="date_availability" date_stop="date_end">
+                    <field name="garden"/>
+                </gantt>
+            </field>
+        </record>
+<!-- 
+
+        <record id="estate_property_activity" model="ir.ui.view">
+            <field name="name">estate.property.activity</field>
+            <field name="model">estate.property</field>
+            <field name="arch" type="xml">
+                <activity>
+                    <field name="bedrooms"/>
+                    <templates>
+                        <div t-name="activity-box">
+                            <field name="garden"/>
+                            <div>
+                                <field name="name"  display="full"/>
+                                <field name="expected_price" muted="1" display="full"/>
+                            </div>
+                        </div>    
+                    </templates>
+                </activity>
+            </field>
+        </record>  -->
+
+        <record id="estate_property_grid" model="ir.ui.view">
+            <field name="name">estate.property.grid</field>
+            <field name="model">estate.property</field>
+            <field name="arch" type="xml">
+                <grid string="Properties" edit="false">
+                    <field name="garden" type="row"/>
+                    <field name="date_availability" type="col">
+                        <range name="year" string="Year" span="year" step="month"/>
+                        <range name="month" string="Month" span="month" step="day"/>
+                    </field>
+                    <field name="expected_price" type="measure"/>
+                </grid>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_property">
             <field name="name">Property</field>
             <field name="res_model">estate.property</field>
-            <field name="view_mode">tree,form,calendar</field>
+            <field name="view_mode">tree,form,calendar,graph,pivot,gantt,grid</field>
         </record>
 
     </data>
