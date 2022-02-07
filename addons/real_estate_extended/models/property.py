@@ -12,5 +12,8 @@ class stateproperty(models.Model):
     home_state=fields.Char()
 
 class specialoffer(models.Model):
-    _name="special_offer"
-    _inherits={"estate.property.offer":""}
+    _name="special.offer"
+    _inherits={"estate.property":"property_id"}
+
+    property_id = fields.Many2one ('estate.property')
+    special_offer=fields.Float()
