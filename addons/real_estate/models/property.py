@@ -30,6 +30,8 @@ class Property(models.Model):
 
     total_area = fields.Float(compute="_compute_totalarea")
     best_price = fields.Float(compute="_compute_best_price")
+    
+    
     @api.depends("living_area","garden_area")
     def _compute_totalarea(self):
         for record in self:
