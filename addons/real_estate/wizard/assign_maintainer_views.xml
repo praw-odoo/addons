@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        <record id="assign_maintainer_wizard" model="ir.ui.view">
+            <field name="name">assign.maintainer.form</field>
+            <field name="model">assign.maintainer</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="buyer_id"/>
+                    </group>
+                    <footer>
+                        <button name="action_assign_maintainer" type="object" string="assign buyer" class="btn-primary"/>
+                        <button name="Cancel" special="cancel" string="cancel"/>                
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_assign_maintainer_wizard" model="ir.actions.act_window">
+            <field name="name">Assign buyer</field>
+            <field name="res_model">assign.maintainer</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="binding_model_id" ref="real_estate.model_estate_property"/>
+        </record>
+
+    </data>
+</odoo>

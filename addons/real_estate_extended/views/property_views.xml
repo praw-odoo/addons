@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="estate_property_tree_inherited" model="ir.ui.view">
+            <field name="name">estate.property.tree.inherited</field>
+            <field name="model">estate.property</field>
+            <field name="inherit_id" ref="real_estate.estate_property_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='name']" position="after">
+                    <field name="home_city"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="state_property_tree" model="ir.ui.view">
+            <field name="name">state.property.tree"</field>
+            <field name="model">state.property</field>
+            <field name="arch" type="xml">
+                <tree multi_edit="1">
+                    <field name="name"/>
+                    <field name="postcode"/>
+                    <field name="date_availability"/>
+                    <field name="expected_price"/>
+                    <field name="selling_price"/>
+                    <field name="bedrooms"/>
+                    <field name="living_area"/>
+                    <field name="garden_area"/>
+                    <field name="home_state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="state_property_form" model="ir.ui.view">
+            <field name="name">state.property.form</field>
+            <field name="model">state.property</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="property_type_id"/>
+                                <field name="tag_ids" widget="many2many_tags"/>
+                            </group>
+                            <group>
+                                <field name="state" />
+                                <field name="postcode"/>
+                                <field name="date_availability"/>
+                                <field name="expected_price"/>
+                                <field name="selling_price"/>
+                                <field name="best_price"/>
+                                <field name="home_state"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Description">
+                                <group>
+                                    <field name="description"/>
+                                    <field name="bedrooms"/>
+                                    <field name="living_area"/>
+                                    <field name="facades"/>
+                                    <field name="garage"/>
+                                    <field name="garden"/>
+                                    <field name="garden_area"/>
+                                    <field name="garden_orientation"/>
+                                    <field name="total_area"/>
+                                </group>
+                            </page>
+                            <page string="offers">
+                                <field name="offer_ids"/>
+                            </page>
+                            <page string="Other Info">
+                                <group>
+                                    <field name="buyer_id"/>
+                                    <field name="salesperson_id"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_state_property">
+            <field name="name">State Property</field>
+            <field name="res_model">state.property</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+            id="state_property"
+            name="State Property"
+            parent="real_estate.menu_realestate_root"
+            action="action_state_property"/>
+
+    </data>
+</odoo>
