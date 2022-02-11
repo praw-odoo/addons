@@ -8,6 +8,7 @@
     'website': 'http://www.odoo.com/real_estate',
     'depends': ['web_grid'],
     'data':[
+        "security/real_estate_security.xml",
         'security/ir.model.access.csv',
         'views/property_type_views.xml',
         'views/property_tag_views.xml',
