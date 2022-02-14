@@ -17,3 +17,6 @@ class specialoffer(models.Model):
 
     property_id = fields.Many2one ('estate.property')
     special_price=fields.Float()
+
+# @api.model
+# def on_delete(self,vals):
