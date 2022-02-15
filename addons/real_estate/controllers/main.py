@@ -20,3 +20,16 @@ class RealEstate(http.Controller):
         return request.render("real_estate.my_template_user", {
             'name' : request.env.user.name
         })
+
+    @http.route('/qweb_directives')
+    def qweb_directives(self, **kw):
+        propertys = request.env['estate.property'].search([])
+        request.render("real_estate.qweb_template_example", {
+            'propertys' : propertys,
+            'colors' : {
+                0 : 'green',
+                1 : 'blue',
+                2 : 'red',
+                3 : 'yellow'
+            }
+        })

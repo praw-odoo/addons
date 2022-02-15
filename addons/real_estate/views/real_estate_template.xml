@@ -8,4 +8,48 @@
     <template id="my_template_user">
         <span class="font_weight-bold">hello<t t-out=" name"/></span>
     </template>
+
+    <template id="qweb_template_example" name="qweb example">
+        <div class="container">
+            <table>
+                <thead>
+                    <th>Property Name</th>
+                    <th>Property details</th>
+                    <th>Postcode</th>
+                    <th>Availability Date</th>
+                    <th>Expected Price</th>
+                    <th>Selling Price</th>
+                    <th>Bedrooms</th>
+                    <th>Living Area</th>
+                    <th>Facades</th>
+                    <th>garage</th>
+                    <th>garden</th>
+                    <th>garden_area</th>
+                    <th>garden_orientation</th>
+                    <th>active</th>
+                    <th>state</th>
+                </thead>
+                <tbody>
+                    <tr t-foreach="propertys" t-as="Property">
+                        <td><span t-out="property.name"/></td>
+                        <td><span t-out="property.description"/></td>
+                        <td><span t-out="property.postcode"/></td>
+                        <td><span t-out="property.date_availability"/></td>
+                        <td><span t-out="property.date_end"/></td>
+                        <td><span t-out="property.expected_price"/></td>
+                        <td><span t-out="property.selling_price"/></td>
+                        <td><span t-out="property.bedrooms"/></td>
+                        <td><span t-out="property.living_area"/></td>
+                        <td><span t-out="property.facades"/></td>
+                        <td><span t-out="property.garage"/></td>
+                        <td><span t-out="property.garden"/></td>
+                        <td><span t-out="property.garden_area"/></td>
+                        <td><span t-out="property.garden_orientation"/></td>
+                        <td><span t-out="property.active"/></td>
+                        <td><span t-out="property.state"/></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </template>
 </odoo>
