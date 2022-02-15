@@ -16,6 +16,7 @@
         'views/property_views.xml',
         'views/estate_menus.xml',
         'wizard/assign_maintainer_views.xml',
+        'views/real_estate_template.xml',
     ],
     'demo': [],
     'installable': True,

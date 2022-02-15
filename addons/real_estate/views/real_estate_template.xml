@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="my_template">
+        <span class="font-weight-bold">hello world</span>
+        <span>hello user</span>
+    </template>
+
+    <template id="my_template_user">
+        <span class="font_weight-bold">hello<t t-out=" name"/></span>
+    </template>
+</odoo>
