@@ -8,48 +8,136 @@
     <template id="my_template_user">
         <span class="font_weight-bold">hello<t t-out=" name"/></span>
     </template>
+    
+    <template id="qweb_template_table_body" name="table body">
+        <t t-set="sr_no" t-value="1"/>
+                    <tr t-att-class="sr_no % 2 == 0 and 'o_even' or 'o_odd'" t-attf-style="background-color: #{colors.get(sr_no, 'pink')}" t-foreach="propertys" t-as="property">
+                        <td><span t-out="sr_no"/></td>
+                        <td><a t-attf-href="/property_details/#{property.id}"><span t-out="property.name"/></a></td>
+                        <!-- <td><span t-out="property.description"/></td> -->
+                        <td><span t-out="property.postcode"/></td>
+                        <td><span t-out="property.date_availability"/></td>
+                        <!-- <td><span t-out="property.date_end"/></td> -->
+                        <td><span t-out="property.expected_price"/></td>
+                        <!-- <td><span t-out="property.selling_price"/></td> -->
+                        <td><span t-out="property.bedrooms"/></td>
+                        <td><span t-out="property.living_area"/></td>
+                        <!-- <td><span t-out="property.facades"/></td> -->
+                        <td><span t-out="property.garage"/></td>
+                        <td><span t-out="property.garden"/></td>
+                        <!-- <td><span t-out="property.garden_area"/></td> -->
+                        <td><span t-out="property.garden_orientation"/></td>
+                        <td><span t-out="property.active"/></td>
+                        <td><span t-out="property.state"/></td>
+                        <t t-set="sr_no" t-value="sr_no + 1"/>
+                    </tr>
+    </template>
 
     <template id="qweb_template_example" name="qweb example">
         <div class="container">
             <table>
                 <thead>
+                    <th>Sr. No.</th>
                     <th>Property Name</th>
-                    <th>Property details</th>
+                    <!-- <th>Property details</th> -->
                     <th>Postcode</th>
                     <th>Availability Date</th>
+                    <!-- <th>date_end</th> -->
                     <th>Expected Price</th>
-                    <th>Selling Price</th>
+                    <!-- <th>Selling Price</th> -->
                     <th>Bedrooms</th>
                     <th>Living Area</th>
-                    <th>Facades</th>
+                    <!-- <th>Facades</th> -->
                     <th>garage</th>
                     <th>garden</th>
-                    <th>garden_area</th>
+                    <!-- <th>garden_area</th> -->
                     <th>garden_orientation</th>
                     <th>active</th>
                     <th>state</th>
                 </thead>
                 <tbody>
-                    <tr t-foreach="propertys" t-as="Property">
-                        <td><span t-out="property.name"/></td>
-                        <td><span t-out="property.description"/></td>
-                        <td><span t-out="property.postcode"/></td>
-                        <td><span t-out="property.date_availability"/></td>
-                        <td><span t-out="property.date_end"/></td>
-                        <td><span t-out="property.expected_price"/></td>
-                        <td><span t-out="property.selling_price"/></td>
-                        <td><span t-out="property.bedrooms"/></td>
-                        <td><span t-out="property.living_area"/></td>
-                        <td><span t-out="property.facades"/></td>
-                        <td><span t-out="property.garage"/></td>
-                        <td><span t-out="property.garden"/></td>
-                        <td><span t-out="property.garden_area"/></td>
-                        <td><span t-out="property.garden_orientation"/></td>
+                    <!-- <t t-set="sr_no" t-value="1"/>
+                    <tr t-attf-style="background-color: #{colors.get(sr_no, 'pink')}" t-foreach="propertys" t-as="property">
+                        <td><span t-out="sr_no"/></td>
+                        <td><span t-out="property.name"/></td> -->
+                        <!-- <td><span t-out="property.description"/></td> -->
+                        <!-- <td><span t-out="property.postcode"/></td>
+                        <td><span t-out="property.date_availability"/></td> -->
+                        <!-- <td><span t-out="property.date_end"/></td> -->
+                        <!-- <td><span t-out="property.expected_price"/></td> -->
+                        <!-- <td><span t-out="property.selling_price"/></td> -->
+                        <!-- <td><span t-out="property.bedrooms"/></td>
+                        <td><span t-out="property.living_area"/></td> -->
+                        <!-- <td><span t-out="property.facades"/></td> -->
+                        <!-- <td><span t-out="property.garage"/></td>
+                        <td><span t-out="property.garden"/></td> -->
+                        <!-- <td><span t-out="property.garden_area"/></td> -->
+                        <!-- <td><span t-out="property.garden_orientation"/></td>
                         <td><span t-out="property.active"/></td>
                         <td><span t-out="property.state"/></td>
-                    </tr>
+                        <t t-set="sr_no" t-value="sr_no + 1"/>
+                    </tr> -->
+                    <t t-call="real_estate.qweb_template_table_body">
+                        <t t-set="message">no sessions available</t>
+                    </t>
                 </tbody>
             </table>
         </div>
     </template>
+
+    <template id="subtemplate" name="subtemplate">
+        <div style="width: 100%; height: 100%;">
+            <t t-out="0"/>
+        </div>
+    </template>
+
+    <template id="test_tcall" name="test tcall">
+        <t t-call="real_estate.subtemplate">
+            <div>hello world</div>
+        </t>
+    </template>
+
+    <template id="web_page" name="WEB_PAGE">
+        <t t-call="website.layout">
+            <div class="container">
+                <div class="table-layout">
+                    <table class="table">
+                        <thead>
+                            <th>Sr. No.</th>
+                            <th>Property Name</th>
+                            <!-- <th>Property details</th> -->
+                            <th>Postcode</th>
+                            <th>Availability Date</th>
+                            <!-- <th>date_end</th> -->
+                            <th>Expected Price</th>
+                            <!-- <th>Selling Price</th> -->
+                            <th>Bedrooms</th>
+                            <th>Living Area</th>
+                            <!-- <th>Facades</th> -->
+                            <th>garage</th>
+                            <th>garden</th>
+                            <!-- <th>garden_area</th> -->
+                            <th>garden_orientation</th>
+                            <th>active</th>
+                            <th>state</th>
+                        </thead>
+                        <tbody>
+                            <t t-call="real_estate.qweb_template_table_body">
+                                <t t-set="message">no sessions available</t>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="property_details" name="property_details">
+        <t t-call="website.layout">
+            <div class="container">
+                <div><span t-field="property.name"/></div>
+            </div>
+        </t>
+    </template>
+
 </odoo>
