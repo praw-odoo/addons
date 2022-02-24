@@ -9,7 +9,6 @@
     'depends': ['sale'],
     'data':[
         'views/DaystoDeliver_views.xml',
-        #'security/ir.model.access.csv',
     ],
     'demo': [],
     'installable': True,

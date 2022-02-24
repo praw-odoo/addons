@@ -20,6 +20,9 @@
                 <xpath expr="//field[@name='picking_policy']" position="after">
                     <field name="appointment_date"/>
                 </xpath>
+                <xpath expr="//field[@name='payment_term_id']" position="after">
+                    <field name="zero_stock_approval"/>
+                </xpath>
             </field>
         </record>
 
