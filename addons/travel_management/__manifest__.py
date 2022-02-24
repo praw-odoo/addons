@@ -5,8 +5,8 @@
     'sequence': 15,
     'summary': 'Manages Travel Management Services',
     'description': "",
-    'website': 'http://www.odoo.com/real_estate',
-    'depends': ['web_grid'],
+    'website': 'http://www.odoo.com/travel',
+    'depends': [],
     'data':[
         'security/ir.model.access.csv',
         'views/travel_views.xml'

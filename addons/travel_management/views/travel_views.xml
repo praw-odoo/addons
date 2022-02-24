@@ -1,23 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <data< noupdate="1">>
+    <data>
     
-        <menuitem
-            id="travel_menu"
-            name="Travel"
-            sequence="10"/>
-
-        <menuitem
-            id="travel_records_menu"
-            parent="travel_menu"
-            name="Travel Records"
-            action="action_travel"
-            sequence="10"/>
-
+        <menuitem id="travel_menu" name="Travel">
+            <menuitem id="travel_records_menu" name="Travel Records" action="action_travel">
+        </menuitem>
+                
         <record model="ir.actions.act_window" act="action_travel">
             <field name="name">Travel</field>
             <field name="res_model">travel.travel</field>
+        </record>
+
+        <record id="travel_management_view_tree" model="ir.ui.view">
+            <field name="name">travel.management.view.tree</field>
+            <field name="model">travel.travel</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="travel_management_view_form" model="ir.ui.view">
+            <field name="name">travel.management.view.form</field>
+            <field name="model"></field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
         </record>
     
     </data>
