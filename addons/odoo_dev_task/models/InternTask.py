@@ -11,7 +11,11 @@ class SaleOrder(models.Model):
     _inherit="sale.order"
 
     appointment_date = fields.Datetime(string="Appointment Date")
-    zero_stock_approval = fields.Boolean()
+    zero_stock_approval = fields.Boolean(string="Zero Stock Approval")
+
+    #if zero_stock_approval:
+
+
     # commitment_date = fields.Datetime(compute="_onchange_days")
 
     # @api.depends("appointment_date")

@@ -9,6 +9,7 @@
     'depends': ['sale'],
     'data':[
         'views/DaystoDeliver_views.xml',
+        'security/InternTask_security_views.xml'
     ],
     'demo': [],
     'installable': True,
