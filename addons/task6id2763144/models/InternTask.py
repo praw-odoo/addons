@@ -19,4 +19,18 @@ class SaleOrder(models.Model):
         for record in self:
             if record.appointment_date and record.partner_id.days_to_deliver > 0 :
                 record.commitment_date = record.appointment_date - datetime.timedelta(days=record.partner_id.days_to_deliver)
-        
+
+
+class StockMove(models.Model):
+    _inherit="stock.picking"
+
+    appointment_date = fields.Datetime(string="Appointment Date", attrs="{'visible':[('picking_type_id', '=', 'delivery')]}")
+
+
+    # commitment_date = fields.Datetime(readonly=False,compute='commute_commitment_date')
+
+    # @api.depends("appointment_date")
+    # def commute_commitment_date(self):
+    #     for record in self:
+    #         if record.appointment_date and record.partner_id.days_to_deliver > 0 :
+    #             record.commitment_date = record.appointment_date - datetime.timedelta(days=record.partner_id.days_to_deliver)
