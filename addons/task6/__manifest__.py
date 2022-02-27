@@ -8,11 +8,13 @@
     'website': 'http://www.odoo.com/task6',
     'depends': ['contacts','product','sale','sale_management','stock'],
     'data':[
-        'views/InternTask_views.xml',
+        'views/res_partner_days_to_deliver.xml',
+        'views/sale_order_appoinment_date_views.xml',
+        'views/stock_picking_appoinment_date_views.xml',
         #'security/InternTask_security_views.xml'
     ],
     'demo': [],
-    'installable': True,
+    #'installable': True,
     'application': False,
     'auto_install': False,
     'license': 'LGPL-3'
